@@ -19,6 +19,13 @@ app.get('/', (req, res)=>{
 })
 
 app.get('/task1', (req, res)=>{
+    let {emotions} = require('./models/data');
+    let title = req.query.title;
+    console.log(title);
+    let selectedEmotion = emotions.filter(item => item.title == title);
+    let quotePath = selectedEmotion.length ? selectedEmotion[0].quotePath : "images/task1/default.jpg";
+    res.locals.emotions = emotions;
+    res.locals.quotePath = quotePath;
     res.locals.Ma = '20127004 - Huỳnh Minh Bảo';
     res.render('task1', {title: 'Inspring quotes'});
 })
