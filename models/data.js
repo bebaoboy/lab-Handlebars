@@ -19,6 +19,11 @@ const emotions = [
     title: 'angry',
     imagePath: 'images/task1/angry.jpeg',
     quotePath: 'images/task1/angry/angry1.jpg'
+  },
+  {
+    title: 'supergrumpy',
+    imagePath: 'images/task1/angry.jpeg',
+    quotePath: 'images/task1/angry/angry1.jpg'
   }
 ];
 /* task 3 */
