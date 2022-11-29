@@ -12,8 +12,8 @@ app.engine('hbs', expressHbs.engine({
 app.use(express.static(__dirname + '/HandleBars-Statistic'));
 app.set('view engine', 'hbs');
 app.set('port', process.env.PORT || 3000);
-// app.use(express.json());
-// app.use(express.urlencoded({ extended:false}))
+ app.use(express.json());
+ app.use(express.urlencoded({ extended:false}))
 app.get('/', (req, res)=>{
     res.locals.Ma = 'Nhom 6';
     res.render('index', { title: 'Jeopardize contest'});
@@ -33,10 +33,7 @@ app.get('/task1', (req, res)=>{
 
 app.use('/task2', require('./routes/task2Route'))
 
-app.get('/task2', (req, res)=>{
-    res.locals.Ma = '20127600 - Lưu Tuấn Quân';
-    res.render('task2',  {title: 'Jars Saving'});
-})
+
 
 app.get('/task3', (req, res)=>{
     res.locals.Ma = '20127600 - Lưu Tuấn Quân';

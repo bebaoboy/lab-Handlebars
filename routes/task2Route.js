@@ -10,7 +10,7 @@ route.post('/', (req,res)=>
     controller.showPost(req,res);
 })
 route.get('/task2', (req, res)=>{
-    res.locals.Ma = '20127600 - Lưu Tuấn Quân';
+  
     res.render('task2',  {title: 'Jars Saving'});
 })
 module.exports= route; 
