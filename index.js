@@ -31,19 +31,30 @@ app.get('/task1', (req, res)=>{
     res.render('task1', {title: 'Inspring quotes'});
 })
 
+
 app.use('/task2', require('./routes/task2Route'))
 
 
 
 app.get('/task3', (req, res)=>{
     res.locals.Ma = '20127600 - Lưu Tuấn Quân';
+    let {products} = require('./models/data');
+    let {categories} = require('./models/data');
+    res.locals.categories = categories;
+    let type = req.query.type;
+    console.log(type);
+    let selectedType = products.filter(item => item.category == type);
+    console.log(selectedType);
+    if(type == null){
+        res.locals.products = products;
+    }else{
+        res.locals.products = selectedType;
+    }
     res.render('task3',  {title: 'TV Sales'});
 })
 
-app.get('/task4', (req, res)=>{
-    res.locals.Ma = '20127 - Ten';
-    res.render('task4', {title: 'Zodiac Characteristics'});
-})
+
+app.use('/task4', require('./routes/task4Route'));
 
 app.listen(app.get('port'), ()=>{
     console.log(`Server is runnning on port ${app.get('port')}`); 
