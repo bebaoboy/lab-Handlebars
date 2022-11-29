@@ -41,7 +41,7 @@ app.get('/task3', (req, res)=>{
 })
 
 
-app.use('./task4', require('./routes/task4Route'));
+app.use('/task4', require('./routes/task4Route'));
 
 app.listen(app.get('port'), ()=>{
     console.log(`Server is runnning on port ${app.get('port')}`); 
