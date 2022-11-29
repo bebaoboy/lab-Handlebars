@@ -32,11 +32,24 @@ app.get('/task1', (req, res)=>{
 
 app.get('/task2', (req, res)=>{
     res.locals.Ma = '20127 - Ten';
+    
     res.render('task2', {title: 'Jars Saving'}  );
 })
 
 app.get('/task3', (req, res)=>{
     res.locals.Ma = '20127600 - Lưu Tuấn Quân';
+    let {products} = require('./models/data');
+    let {categories} = require('./models/data');
+    res.locals.categories = categories;
+    let type = req.query.type;
+    console.log(type);
+    let selectedType = products.filter(item => item.category == type);
+    console.log(selectedType);
+    if(type == null){
+        res.locals.products = products;
+    }else{
+        res.locals.products = selectedType;
+    }
     res.render('task3',  {title: 'TV Sales'});
 })
 
