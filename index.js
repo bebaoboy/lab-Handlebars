@@ -40,10 +40,8 @@ app.get('/task3', (req, res)=>{
     res.render('task3',  {title: 'TV Sales'});
 })
 
-app.get('/task4', (req, res)=>{
-    res.locals.Ma = '20127 - Ten';
-    res.render('task4', {title: 'Zodiac Characteristics'});
-})
+
+app.use('./task4', require('./routes/task4Route'));
 
 app.listen(app.get('port'), ()=>{
     console.log(`Server is runnning on port ${app.get('port')}`); 
